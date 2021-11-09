@@ -21,7 +21,7 @@
         <androidx.appcompat.widget.AppCompatImageView
             android:src="@drawable/temp"
             android:scaleType="fitXY"
-            android:id="@+id/ivProductImageIPDLF"
+            android:id="@+id/ivProductImage"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_300"
             app:layout_constraintEnd_toEndOf="parent"
@@ -29,6 +29,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvProductName"
             android:textSize="@dimen/sp_16"
             android:layout_marginTop="@dimen/dp_8"
             android:textColor="@color/colorAccentLight"
@@ -37,7 +38,7 @@
             android:text="@string/baked_salmon_with_fennel_tomatoes"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivProductImageIPDLF" />
+            app:layout_constraintTop_toBottomOf="@+id/ivProductImage" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
