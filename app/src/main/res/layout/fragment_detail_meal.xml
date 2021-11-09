@@ -1,14 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorAccent"
     tools:context=".fragment.view.DetailMealFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvMealName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_32"
+            android:text="Spicy Arrabiata Penne"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_marginTop="@dimen/dp_16"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:id="@+id/ivMealImage"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_300"
+            android:scaleType="fitXY"
+            android:src="@drawable/temp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvMealName" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/Ingredients"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_16"
+            android:text="Ingredients"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivMealImage" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_marginTop="@dimen/dp_32"
+            android:id="@+id/tvIngredientsName"
+            android:layout_width="@dimen/dp_300"
+            android:layout_height="wrap_content"
+            android:text="@string/penne"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintEnd_toEndOf="@+id/Ingredients"
+            app:layout_constraintStart_toStartOf="@+id/Ingredients"
+            app:layout_constraintTop_toBottomOf="@+id/Ingredients" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/Instructions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Instructions"
+            android:layout_marginTop="@dimen/dp_32"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_24"
+            app:layout_constraintEnd_toEndOf="@+id/Ingredients"
+            app:layout_constraintStart_toStartOf="@+id/Ingredients"
+            app:layout_constraintTop_toBottomOf="@+id/tvIngredientsName" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvInstructions"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_32"
+            android:text="@string/instructions"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Instructions" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
