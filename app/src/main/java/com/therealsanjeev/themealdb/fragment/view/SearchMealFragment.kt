@@ -91,7 +91,12 @@ class SearchMealFragment() : Fragment(),MealListAdapter.itemClicked {
                 }
                 Status.ERROR -> {
                     Log.d("TAG", "datachecking: "+it)
-                    binding.roundProgress.visibility=View.GONE
+                    binding.apply {
+                        roundProgress.visibility=View.GONE
+                        ivNoInternet.visibility=View.VISIBLE
+
+                    }
+                    Toast.makeText(requireActivity(), it.message, Toast.LENGTH_LONG).show()
                 }
             }
         })

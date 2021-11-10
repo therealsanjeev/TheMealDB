@@ -7,9 +7,11 @@
     android:background="@color/colorAccent"
     tools:context=".fragment.view.DetailMealFragment">
 
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clMealDetails"
@@ -104,7 +106,20 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:visibility="gone"
+            android:id="@+id/ivNotFound"
+            android:layout_marginTop="@dimen/dp_200"
+            android:layout_width="@dimen/dp_200"
+            android:layout_height="@dimen/dp_200"
+            android:src="@drawable/ic_oops__404_error_with_a_broken_robot_amico"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <ProgressBar
+
             android:layout_marginTop="@dimen/dp_32"
             android:id="@+id/roundProgress"
             android:layout_width="wrap_content"
@@ -120,5 +135,4 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </ScrollView>

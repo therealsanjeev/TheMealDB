@@ -6,7 +6,7 @@
         <entry key="..\:/Users/THISPC/AndroidStudioProjects/TheMealDB/app/src/main/res/drawable/round_corner_gray_corner_white_bg.xml" value="0.2703125" />
         <entry key="..\:/Users/THISPC/AndroidStudioProjects/TheMealDB/app/src/main/res/drawable/round_progress_drawable.xml" value="0.2703125" />
         <entry key="..\:/Users/THISPC/AndroidStudioProjects/TheMealDB/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/THISPC/AndroidStudioProjects/TheMealDB/app/src/main/res/layout/fragment_detail_meal.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/THISPC/AndroidStudioProjects/TheMealDB/app/src/main/res/layout/fragment_detail_meal.xml" value="0.1" />
         <entry key="..\:/Users/THISPC/AndroidStudioProjects/TheMealDB/app/src/main/res/layout/fragment_search_meal.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/THISPC/AndroidStudioProjects/TheMealDB/app/src/main/res/layout/item_meal.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/THISPC/AndroidStudioProjects/TheMealDB/app/src/main/res/layout/round_progress_bar.xml" value="0.25416666666666665" />
@@ -22,7 +22,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.536" />
+        <option name="scale" value="0.1" />
       </ProjectState>
     </option>
   </component>
