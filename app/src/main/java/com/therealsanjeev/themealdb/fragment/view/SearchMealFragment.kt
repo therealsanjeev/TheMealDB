@@ -20,16 +20,16 @@ import com.therealsanjeev.themealdb.utils.CommonUtils
 import com.therealsanjeev.themealdb.utils.Status
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class SearchMealFragment() : Fragment(),MealListAdapter.itemClicked {
+class SearchMealFragment() : Fragment(), MealListAdapter.itemClicked {
 
     private val mainViewModel: MainViewModel by viewModel()
 
     val rnds = (0..13).random()
-    val categorys:Array<String> =arrayOf(
-        "Beef", "Chicken","Dessert","Lamb","Miscellaneous","Pasta","Pork","Seafood","Side",
-        "Starter","Vegan","Vegetarian","Breakfast","Goat"
-        )
-    lateinit var binding:FragmentSearchMealBinding
+    val categorys: Array<String> = arrayOf(
+        "Beef", "Chicken", "Dessert", "Lamb", "Miscellaneous", "Pasta", "Pork", "Seafood", "Side",
+        "Starter", "Vegan", "Vegetarian", "Breakfast", "Goat"
+    )
+    lateinit var binding: FragmentSearchMealBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainViewModel.fetchCategoryList(categorys[rnds])
@@ -40,25 +40,25 @@ class SearchMealFragment() : Fragment(),MealListAdapter.itemClicked {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding= FragmentSearchMealBinding.inflate(layoutInflater)
+        binding = FragmentSearchMealBinding.inflate(layoutInflater)
 
         binding.apply {
             ivSearchMeals.setOnClickListener {
-                val searchMeal=etSearch.text.toString()
-                if(!searchMeal.isNullOrEmpty()){
+                val searchMeal = etSearch.text.toString()
+                if (!searchMeal.isNullOrEmpty()) {
                     Bundle().apply {
-                        putString("searchData",searchMeal )
+                        putString("searchData", searchMeal)
 
                         val ft: FragmentTransaction = requireFragmentManager().beginTransaction()
-                        val fg=DetailMealFragment();
-                        fg.arguments=this
+                        val fg = DetailMealFragment();
+                        fg.arguments = this
                         ft.replace(R.id.fragmentContainer, fg, "NewFragmentTag")
                         ft.addToBackStack(null);
                         ft.commit()
 
                     }
 
-                }else{
+                } else {
 
                 }
             }
@@ -74,29 +74,35 @@ class SearchMealFragment() : Fragment(),MealListAdapter.itemClicked {
                 Status.SUCCESS -> {
 
                     binding.apply {
-                        roundProgress.visibility=View.GONE
-                        rvMeals.visibility=View.VISIBLE
+                        roundProgress.visibility = View.GONE
+                        ivNoInternet.visibility = View.GONE
+                        rvMeals.visibility = View.VISIBLE
                         rvMeals.apply {
-                            layoutManager=LinearLayoutManager(requireActivity())
-                            adapter=MealListAdapter(it.data!!,this@SearchMealFragment)
+                            layoutManager = LinearLayoutManager(requireActivity())
+                            adapter = MealListAdapter(it.data!!, this@SearchMealFragment)
                         }
                     }
-                    Log.d("TAG", "datachecking: "+it)
+                    Log.d("TAG", "datachecking: " + it)
                 }
                 Status.LOADING -> {
-                    binding.rvMeals.visibility=View.GONE
-                    binding.roundProgress.visibility=View.VISIBLE
-                    Log.d("TAG", "datachecking: "+it)
+                    binding.apply {
+                        rvMeals.visibility = View.GONE
+                        ivNoInternet.visibility = View.GONE
+                        roundProgress.visibility = View.VISIBLE
+                    }
+
+                    Log.d("TAG", "datachecking: " + it)
 
                 }
                 Status.ERROR -> {
-                    Log.d("TAG", "datachecking: "+it)
+                    Log.d("TAG", "datachecking: " + it)
                     binding.apply {
-                        roundProgress.visibility=View.GONE
-                        ivNoInternet.visibility=View.VISIBLE
+                        rvMeals.visibility=View.GONE
+                        roundProgress.visibility = View.GONE
+                        ivNoInternet.visibility = View.VISIBLE
 
                     }
-                    Toast.makeText(requireActivity(), it.message, Toast.LENGTH_LONG).show()
+                    Toast.makeText(requireActivity(), it.message, Toast.LENGTH_SHORT).show()
                 }
             }
         })
@@ -107,8 +113,8 @@ class SearchMealFragment() : Fragment(),MealListAdapter.itemClicked {
             putParcelable("data", item)
 
             val ft: FragmentTransaction = requireFragmentManager().beginTransaction()
-            val fg=DetailMealFragment();
-            fg.arguments=this
+            val fg = DetailMealFragment();
+            fg.arguments = this
             ft.replace(R.id.fragmentContainer, fg, "NewFragmentTag")
             ft.addToBackStack(null);
             ft.commit()
@@ -118,6 +124,7 @@ class SearchMealFragment() : Fragment(),MealListAdapter.itemClicked {
 
     override fun onResume() {
         super.onResume()
+        mainViewModel.fetchCategoryList(categorys[rnds])
         datachecking()
     }
 }
