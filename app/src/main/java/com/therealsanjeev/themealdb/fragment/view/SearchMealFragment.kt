@@ -46,6 +46,19 @@ class SearchMealFragment() : Fragment(),MealListAdapter.itemClicked {
             ivSearchMeals.setOnClickListener {
                 val searchMeal=etSearch.text.toString()
                 if(!searchMeal.isNullOrEmpty()){
+                    Bundle().apply {
+                        putString("searchData",searchMeal )
+
+                        val ft: FragmentTransaction = requireFragmentManager().beginTransaction()
+                        val fg=DetailMealFragment();
+                        fg.arguments=this
+                        ft.replace(R.id.fragmentContainer, fg, "NewFragmentTag")
+                        ft.addToBackStack(null);
+                        ft.commit()
+
+                    }
+
+                }else{
 
                 }
             }
@@ -56,8 +69,6 @@ class SearchMealFragment() : Fragment(),MealListAdapter.itemClicked {
 
     private fun datachecking() {
         mainViewModel.categoryList.observe(requireActivity(), Observer {
-
-
             when (it.status) {
 
                 Status.SUCCESS -> {

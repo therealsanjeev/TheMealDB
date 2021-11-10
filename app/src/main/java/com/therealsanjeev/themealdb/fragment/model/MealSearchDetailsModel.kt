@@ -4,12 +4,10 @@ package com.therealsanjeev.themealdb.fragment.model
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
-@JsonClass(generateAdapter = true)
 data class MealSearchDetailsModel(
     @Json(name = "meals")
     val meals: List<Meal>
 ) {
-    @JsonClass(generateAdapter = true)
     data class Meal(
         @Json(name = "dateModified")
         val dateModified: Any, // null
