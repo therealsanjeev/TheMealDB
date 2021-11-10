@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
@@ -15,6 +16,7 @@ import com.therealsanjeev.themealdb.databinding.FragmentSearchMealBinding
 import com.therealsanjeev.themealdb.fragment.adpter.MealListAdapter
 import com.therealsanjeev.themealdb.fragment.model.MealsModel
 import com.therealsanjeev.themealdb.fragment.viewmodel.MainViewModel
+import com.therealsanjeev.themealdb.utils.CommonUtils
 import com.therealsanjeev.themealdb.utils.Status
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -30,7 +32,7 @@ class SearchMealFragment() : Fragment(),MealListAdapter.itemClicked {
     lateinit var binding:FragmentSearchMealBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mainViewModel.fetchCategoryList("Beef")
+        mainViewModel.fetchCategoryList(categorys[rnds])
         datachecking()
     }
 
@@ -40,6 +42,14 @@ class SearchMealFragment() : Fragment(),MealListAdapter.itemClicked {
     ): View? {
         binding= FragmentSearchMealBinding.inflate(layoutInflater)
 
+        binding.apply {
+            ivSearchMeals.setOnClickListener {
+                val searchMeal=etSearch.text.toString()
+                if(!searchMeal.isNullOrEmpty()){
+
+                }
+            }
+        }
 
         return binding.root
     }
